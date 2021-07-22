@@ -30,7 +30,7 @@ window.onload = () => {// Генерируем игровое поле
     }
 }
 
-function newGame() { // Обновляем все переменные для новой игры
+const newGame = () => { // Обновляем все переменные для новой игры
     score = 0, 
     player  = true,
     numberOfCount  = 9,
@@ -41,7 +41,7 @@ function newGame() { // Обновляем все переменные для н
         cell.textContent = '';
     }
     gamerInfo.textContent = 'Сейчас ходит игрок X';
-}
+};
 
 const tableClick = (e) => {
     if(e.target.textContent == '') { // Если ячейка пустая, то
@@ -78,4 +78,4 @@ const tableClick = (e) => {
     } else {
         alert('Недопустимый ход'); // Если ячейка не пустая, то выводится alert
     }
-}
+};
