@@ -22,7 +22,7 @@ window.onload = () => {// Генерируем игровое поле
         cell.classList.add('cell');
         innerCell = document.createElement('div');
         innerCell.classList.add('inner-cell');
-        innerCell.onclick = tableClick;
+        innerCell.addEventListener('click', tableClick);
         innerCell.setAttribute('y', (i % 3).toString()); // Генерируем столбцы
         innerCell.setAttribute('x', parseInt(i / 3).toString()); // Генерируем строки
         cell.appendChild(innerCell); // Добавляем содержимое ячеек в ячейку
@@ -43,11 +43,11 @@ function newGame() { // Обновляем все переменные для н
     gamerInfo.textContent = 'Сейчас ходит игрок X';
 }
 
-function tableClick() {
-    if(this.textContent == '') { // Если ячейка пустая, то
-        this.textContent = player ? 'X' : 'O';
-        let x = this.getAttribute('x'), // Получаем значение из атрибута х
-            y = this.getAttribute('y'); // Получаем значение из атрибута y
+const tableClick = (e) => {
+    if(e.target.textContent == '') { // Если ячейка пустая, то
+        e.target.textContent = player ? 'X' : 'O';
+        let x = e.target.getAttribute('x'), // Получаем значение из атрибута х
+            y = e.target.getAttribute('y'); // Получаем значение из атрибута y
         gameTable[x][y] = player; // Присваиваем значение игрока ячейке по которой кликнули
         numberOfCount--;// Снимаем попытку
         if ((gameTable[x][0] === player && gameTable[x][1] === player && gameTable[x][2] === player) || // Проверка победителя перечислением всех возможных комбинаций
