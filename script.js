@@ -57,10 +57,10 @@ const tableClick = (e) => {
             winner = player; 
             if (winner) {
                 scoreFirst++;
-                firstPlayer.textContent += scoreFirst;
+                firstPlayer.textContent = `Игрок X нарбал очков: ${scoreFirst}`;
             } else {
                 scoreSecond++;
-                secondPlayer.textContent += scoreSecond;
+                secondPlayer.textContent = `Игрок O нарбал очков: ${scoreSecond}`;
             }
         }
 
